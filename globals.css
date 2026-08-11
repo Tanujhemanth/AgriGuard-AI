@@ -1,56 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --background: #09130e;
+  --background: #060d09;
   --foreground: #ecfdf5;
-  --card-bg: rgba(16, 32, 24, 0.75);
-  --card-border: rgba(52, 211, 153, 0.2);
+  --card-bg: rgba(11, 24, 17, 0.8);
+  --card-border: rgba(52, 211, 153, 0.22);
   --accent-emerald: #10b981;
   --accent-gold: #f59e0b;
 }
 
 body {
-  background-color: #08120d;
+  background-color: #060d09;
   background-image: 
-    radial-gradient(at 0% 0%, rgba(16, 185, 129, 0.08) 0px, transparent 50%),
-    radial-gradient(at 100% 100%, rgba(245, 158, 11, 0.06) 0px, transparent 50%);
+    radial-gradient(at 10% 10%, rgba(16, 185, 129, 0.12) 0px, transparent 45%),
+    radial-gradient(at 90% 90%, rgba(245, 158, 11, 0.08) 0px, transparent 45%),
+    radial-gradient(at 50% 50%, rgba(5, 150, 105, 0.05) 0px, transparent 60%);
   color: #ecfdf5;
   min-height: 100vh;
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
 }
 
+h1, h2, h3, h4, .font-heading {
+  font-family: 'Outfit', 'Inter', system-ui, sans-serif;
+}
+
+/* Glassmorphism Design System */
 .glass-card {
-  background: rgba(13, 27, 20, 0.7);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(52, 211, 153, 0.15);
-  border-radius: 1rem;
+  background: rgba(11, 24, 18, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(52, 211, 153, 0.2);
+  border-radius: 1.25rem;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
 }
 
 .glass-card-hover {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .glass-card-hover:hover {
-  border-color: rgba(52, 211, 153, 0.35);
+  border-color: rgba(52, 211, 153, 0.45);
   transform: translateY(-2px);
-  box-shadow: 0 10px 30px -10px rgba(16, 185, 129, 0.15);
+  box-shadow: 0 14px 40px -10px rgba(16, 185, 129, 0.22);
 }
 
-/* Custom Pulsing Leaf Scanner Animation */
+.glass-input {
+  background: rgba(6, 15, 11, 0.8);
+  border: 1px solid rgba(52, 211, 153, 0.3);
+  backdrop-filter: blur(8px);
+  color: #ffffff;
+  transition: all 0.2s ease;
+}
+
+.glass-input:focus {
+  border-color: #10b981;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.25);
+  outline: none;
+}
+
+/* Gradient Text Effect */
+.gradient-text-emerald {
+  background: linear-gradient(135deg, #34d399 0%, #10b981 50%, #059669 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-text-gold {
+  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #d97706 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Custom Pulsing Laser Scanner Animation */
 @keyframes laserScan {
   0% {
     top: 0%;
-    opacity: 0.8;
+    opacity: 0.85;
   }
   50% {
     opacity: 1;
   }
   100% {
     top: 100%;
-    opacity: 0.8;
+    opacity: 0.85;
   }
 }
 
@@ -64,18 +101,48 @@ body {
   animation: laserScan 2.2s ease-in-out infinite alternate;
 }
 
+/* Shimmer Loading Effect */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, rgba(16, 185, 129, 0.05) 25%, rgba(52, 211, 153, 0.2) 50%, rgba(16, 185, 129, 0.05) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* Glowing Border Pulse */
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(16, 185, 129, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(16, 185, 129, 0.6);
+  }
+}
+
+.glow-border-emerald {
+  animation: pulseGlow 3s infinite ease-in-out;
+}
+
 /* Custom Scrollbars */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: rgba(8, 18, 13, 0.6);
+  background: rgba(6, 13, 9, 0.8);
 }
 ::-webkit-scrollbar-thumb {
   background: rgba(52, 211, 153, 0.25);
-  border-radius: 3px;
+  border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(52, 211, 153, 0.5);
+  background: rgba(52, 211, 153, 0.55);
 }
